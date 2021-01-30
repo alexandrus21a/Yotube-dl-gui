@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Live Download MP3</title>
+</head>
+
+<body>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="mp3.html">MP3</a></li>
+    <li><a href="mp4.html">MP4</a></li>
+    <li><a href="channel.html">Channel</a></li>
+    <li><a class="active" href="settings.html">Settings</a></li>
+  </ul>
+
+  <h2>Settings</h2>
+
+  <div id="parent">
+    <div id="form">
+      <button onclick="window.location.href = 'mp3settings.html';" class="button">MP3 Settings</button>
+      <p id="mp3locatext">No location set for mp3</p>
+      <br>
+      <button onclick="window.location.href = 'mp4settings.html';" class="button">MP4 Settings</button>
+      <p id="mp4locatext">No location set for mp4</p>
+      <br>
+      <button onclick="window.location.href = 'channelsettings.html';" class="button">Channel Settings</button>
+      <p id="channellocatext">No location set for channel</p>
+    </div>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+  var fs = require('fs');
+  const mp3LocationData = './data/mp3data.txt';
+  const mp4LocationData = './data/mp4data.txt';
+  const channelLocationData = './data/channeldata.txt';
+  var locamp3;
+  var locamp4;
+  var audiopbpms;
+  var locachannel;
+
+  // mp3
+  var locamp3 = fs.readFileSync(mp3LocationData, 'utf8');
+  document.getElementById("mp3locatext").innerHTML = locamp3;
+
+  // mp4
+  var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');
+  document.getElementById("mp4locatext").innerHTML = locamp4;
+
+  // channel
+  var locachannel = fs.readFileSync(channelLocationData, 'utf8');
+  document.getElementById("channellocatext").innerHTML = locachannel;
+</script>
+
+</html>

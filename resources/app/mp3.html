@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Live Download MP3</title>
+</head>
+
+<body>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a class="active" href="mp3.html">MP3</a></li>
+    <li><a href="mp4.html">MP4</a></li>
+    <li><a href="channel.html">Channel</a></li>
+    <li><a href="settings.html">Settings</a></li>
+  </ul>
+
+  <div id="parent">
+    <form id="form">
+      <div class="demo-flex-spacer">
+        <label>URL MP3</label>
+        <br>
+        <input class="" type="text" id="item" placeholder="Whats download today?" autofocus>
+      </div>
+      <button type="submit" class="button">MP3</button>
+      <button type="submit"><i class="icon ion-android-arrow-forward"></i>Download</button>
+      <button class="button" onclick="document.getElementById('item').value = ''">Clear</button>
+    </form>
+  </div>
+
+  <script>
+    const electron = require('electron');
+    const {
+      ipcRenderer
+    } = electron;
+
+    // mp3
+    const form = document.querySelector('form');
+    form.addEventListener('submit', submitFormp3);
+
+    function submitFormp3(e) {
+      e.preventDefault();
+      const item = document.querySelector('#item').value;
+      ipcRenderer.send('item:mp3', item);
+    }
+  </script>
+
+</body>
+
+</html>
