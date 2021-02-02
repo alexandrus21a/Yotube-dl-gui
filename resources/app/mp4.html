@@ -22,10 +22,10 @@
       <div>
         <label>URL MP4</label>
         <br>
-        <input type="text" id="item" autofocus>
+            <input class="" type="text" id="item" contenteditable='true' placeholder="Whats download today?" autofocus>
       </div>
-      <button type="submit" class="button">MP4</button>
-      <button class="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <button type="submit" class="button">Download</button>
+      <a type="" class="button2" id="paste" contenteditable='false'>Paste</a>
     </form>
   </div>
 
@@ -43,6 +43,6 @@
     ipcRenderer.send('item:mp4', item);
   }
 </script>
-
+<script src="paste.js"></script>
   </body>
 </html>

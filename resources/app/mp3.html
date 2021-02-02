@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>Live Download MP3</title>
+  <title>Youtubify</title>
 </head>
 
 <body>
@@ -24,14 +24,12 @@
       <div class="demo-flex-spacer">
         <label>URL MP3</label>
         <br>
-        <input class="" type="text" id="item" placeholder="Whats download today?" autofocus>
+            <input class="" type="text" id="item" contenteditable='true' placeholder="Whats download today?" autofocus>
       </div>
-      <button type="submit" class="button">MP3</button>
-      <button type="submit"><i class="icon ion-android-arrow-forward"></i>Download</button>
-      <button class="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <button type="submit" class="button">Download</button>
+      <a type="" class="button2" id="paste" contenteditable='false'>Paste</a>
     </form>
   </div>
-
   <script>
     const electron = require('electron');
     const {
@@ -48,7 +46,7 @@
       ipcRenderer.send('item:mp3', item);
     }
   </script>
-
+<script src="paste.js"></script>
 </body>
 
 </html>

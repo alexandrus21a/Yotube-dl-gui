@@ -24,10 +24,10 @@
       <div>
         <label>URL Channel</label>
         <br>
-        <input type="text" id="item" autofocus>
+            <input class="" type="text" id="item" contenteditable='true' placeholder="Whats download today?" autofocus>
       </div>
       <button type="submit" class="button">Download</button>
-      <button class="button" onclick="document.getElementById('item').value = ''">Clear</button>
+      <a type="" class="button2" id="paste" contenteditable='false'>Paste</a>
     </form>
   </div>
 
@@ -47,7 +47,7 @@
       ipcRenderer.send('item:channel', item);
     }
   </script>
-
+<script src="paste.js"></script>
 </body>
 
 </html>
