@@ -42,16 +42,16 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
   
 ```bash  
 #  
-$ git clone youtubify  
+$ git clone https://github.com/alexandrus21a/Youtubify.git
   
 # Go into the repository  
-$ cd name  
+$ cd youtubify  
   
 # Install dependencies  
 $ npm install  
   
 # Run the app or build 
-$ 
+$ npm run start
 ```  
   
 Note: If you're using Linux Bash for Windows, [see this guide](urlfaq) or use `node` from the command prompt.  
