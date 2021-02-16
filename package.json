@@ -4,8 +4,10 @@
   "description": "A youtube-dl GUI downloader",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "package-win": "electron-packager . live-download --overwrite --asar=false --platform=win32 --arch=ia32 --icon=assets/icons/win/logo.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Live-Download\""
+    "start": "electron-forge start",
+    "package-win": "electron-packager . live-download --overwrite --asar=false --platform=win32 --arch=ia32 --icon=assets/icons/win/logo.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Youtubify\"",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "build": {
     "appId": "com.alexandrus21a.Youtubify.app",
@@ -23,12 +25,44 @@
   "author": "Alexandrus21a",
   "license": "GPL 3",
   "dependencies": {
-    "electron": "^7.2.4",
+    "electron-squirrel-startup": "^1.0.0",
     "node-cmd": "^3.0.0"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "^7.3.3",
     "electron-installer-windows": "^3.0.0",
-    "electron-packager": "^14.2.1",
     "electron-wix-msi": "^2.2.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "Youtubify"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

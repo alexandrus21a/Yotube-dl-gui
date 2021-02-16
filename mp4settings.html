@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Youtubify</title>
+</head>
+
+<body>
+
+  <style media="screen">
+    input[type=text] {
+      width: 50%;
+    }
+
+    #parent {
+      display: table;
+      width: 100%;
+      padding-top: 10px;
+    }
+
+    #form {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li><a href="mp3.html">MP3</a></li>
+    <li><a href="mp4.html">MP4</a></li>
+    <li><a href="channel.html">Channel</a></li>
+    <li><a href="settings.html">Settings</a></li>
+    <li><a class="active" href="mp4settings.html">MP4 Settings</a></li>
+  </ul>
+
+  <h2>About</h2>
+
+  <div id="parent">
+    <form id="form">
+      <div>
+        <label>MP4 Download location</label>
+        <br>
+        <input onkeyup="this.value = this.value.replace(/\\/g, '/')" placeholder="C:/PATH/TO/File" type="text" id="mp4locatext" autofocus>
+      </div>
+      <button type="submit" class="button">Change</button>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    var fs = require('fs');
+    const mp4LocationData = './data/mp4data.txt';
+    var locamp4;
+
+    // mp4
+    var locamp4 = fs.readFileSync(mp4LocationData, 'utf8');
+    document.getElementById("mp4locatext").placeholder = locamp4;
+
+    const electron = require('electron');
+    const {
+      ipcRenderer
+    } = electron;
+
+    // mp3loca
+    const form = document.querySelector('form');
+    form.addEventListener('submit', newmp4loca);
+
+    function newmp4loca(e) {
+      e.preventDefault();
+      const item = document.querySelector('#mp4locatext').value;
+      ipcRenderer.send('item:mp4loca', item);
+    }
+  </script>
+
+</body>
+
+</html>

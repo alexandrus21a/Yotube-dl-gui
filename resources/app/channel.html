@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Live Download Channel</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <title>Live Download Channel</title>
-</head>
+  <body>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="mp3.html">MP3</a></li>
+      <li><a href="mp4.html">MP4</a></li>
+      <li><a class="active" href="channel.html">Channel</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
 
-<body>
+    <div id="parent">
+      <form id="form">
+        <div>
+          <label>URL Channel</label>
+          <br />
+          <input
+            class=""
+            type="text"
+            id="item"
+            contenteditable="true"
+            placeholder="Whats download today?"
+            autofocus
+          />
+        </div>
+        <button type="submit" class="button">Download</button>
+        <ab type="" class="button2" id="paste" contenteditable="false"
+          >Paste</ab
+        >
+      </form>
+    </div>
 
-  <ul>
-    <li><a href="home.html">Home</a></li>
-    <li><a href="mp3.html">MP3</a></li>
-    <li><a href="mp4.html">MP4</a></li>
-    <li><a class="active" href="channel.html">Channel</a></li>
-    <li><a href="settings.html">Settings</a></li>
-  </ul>
+    <script>
+      const electron = require("electron");
+      const { ipcRenderer } = electron;
 
-  <div id="parent">
-    <form id="form">
-      <div>
-        <label>URL Channel</label>
-        <br>
-            <input class="" type="text" id="item" contenteditable='true' placeholder="Whats download today?" autofocus>
-      </div>
-      <button type="submit" class="button">Download</button>
-      <ab type="" class="button2" id="paste" contenteditable='false'>Paste</ab>
-    </form>
-  </div>
+      // channel
+      const form = document.querySelector("form");
+      form.addEventListener("submit", submitFormchannel);
 
-  <script>
-    const electron = require('electron');
-    const {
-      ipcRenderer
-    } = electron;
-
-    // channel
-    const form = document.querySelector('form');
-    form.addEventListener('submit', submitFormchannel);
-
-    function submitFormchannel(e) {
-      e.preventDefault();
-      const item = document.querySelector('#item').value;
-      ipcRenderer.send('item:channel', item);
-    }
-  </script>
-<script src="paste.js"></script>
-</body>
-
+      function submitFormchannel(e) {
+        e.preventDefault();
+        const item = document.querySelector("#item").value;
+        ipcRenderer.send("item:channel", item);
+      }
+    </script>
+    <script src="paste.js"></script>
+  </body>
 </html>

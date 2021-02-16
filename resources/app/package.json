@@ -1,6 +1,6 @@
 {
-  "name": "live-download-v2",
-  "version": "2.0.0",
+  "name": "Youtubify",
+  "version": "1.0.1",
   "description": "A youtube-dl GUI downloader",
   "main": "main.js",
   "scripts": {

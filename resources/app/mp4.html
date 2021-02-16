@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Live Download MP4</title>
   </head>
   <body>
-
     <ul>
       <li><a href="home.html">Home</a></li>
       <li><a href="mp3.html">MP3</a></li>
@@ -17,32 +19,41 @@
       <li><a href="settings.html">Settings</a></li>
     </ul>
 
-  <div id="parent">
-    <form id="form">
-      <div>
-        <label>URL MP4</label>
-        <br>
-            <input class="" type="text" id="item" contenteditable='true' placeholder="Whats download today?" autofocus>
-      </div>
-      <button type="submit" class="button">Download</button>
-      <ab type="" class="button2" id="paste" contenteditable='false'>Paste</ab>
-    </form>
-  </div>
+    <div id="parent">
+      <form id="form">
+        <div>
+          <label>URL MP4</label>
+          <br />
+          <input
+            class=""
+            type="text"
+            id="item"
+            contenteditable="true"
+            placeholder="Whats download today?"
+            autofocus
+          />
+        </div>
+        <button type="submit" class="button">Download</button>
+        <ab type="" class="button2" id="paste" contenteditable="false"
+          >Paste</ab
+        >
+      </form>
+    </div>
 
-<script>
-  const electron = require('electron');
-  const {ipcRenderer} = electron;
+    <script>
+      const electron = require("electron");
+      const { ipcRenderer } = electron;
 
-<!-- mp3 -->
-  const form = document.querySelector('form');
-  form.addEventListener('submit', submitFormp4);
+      <!-- mp3 -->
+      const form = document.querySelector("form");
+      form.addEventListener("submit", submitFormp4);
 
-  function submitFormp4(e){
-    e.preventDefault();
-    const item = document.querySelector('#item').value;
-    ipcRenderer.send('item:mp4', item);
-  }
-</script>
-<script src="paste.js"></script>
+      function submitFormp4(e) {
+        e.preventDefault();
+        const item = document.querySelector("#item").value;
+        ipcRenderer.send("item:mp4", item);
+      }
+    </script>
+    <script src="paste.js"></script>
   </body>
 </html>
