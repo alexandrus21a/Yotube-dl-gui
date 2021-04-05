@@ -1,6 +1,6 @@
 <h1 align="center">  
 <br>  
-<a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/alexandrus21a/iconsforprojects/raw/master/Untitledd.png" alt="Youtubify" width="200"></a>  
+<a><img src="https://github.com/alexandrus21a/iconsforprojects/raw/master/Youtubify/Youtubifylogo.png" alt="Youtubify" width="200"></a>  
 <br>  
 Youtubify
 <br>  
@@ -18,7 +18,7 @@ Youtubify
 <a href="#license">License</a>  
 </p>  
   
-![screenshot](https://github.com/alexandrus21a/iconsforprojects/raw/master/Screenshot_2.jpg)  
+![screenshot](https://github.com/alexandrus21a/iconsforprojects/raw/master/Youtubify/Youtubifysrc.jpg)  
   
 ## Key Features  
   
